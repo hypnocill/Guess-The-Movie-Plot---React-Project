@@ -8,6 +8,8 @@ import Watch from './components/Watch';
 import About from './components/About';
 import Starter from './components/Starter';
 
+import '../css/main.scss';
+
 
 
 ReactDOM.render(
