@@ -1,1 +1,1 @@
-Guess the Plot React SPA
+Guess the Movie Plot - React Redux SPA
