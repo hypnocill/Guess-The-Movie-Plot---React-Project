@@ -1,15 +1,17 @@
 import React from 'react';
 
-import Header from './Header';
+import AppNav from './AppNav';
+import Bottom from './Bottom';
 
-export default class Layout extends React.Component{
+
+export default class Layout extends React.Component {
   render(){
     return(
-    <div>
-      <Header />
-      <h1>LAYOUT COMPONENT</h1>
-      {this.props.children}
-    </div>
-  );
+      <div>
+        <AppNav />
+          {this.props.children}
+        <Bottom />
+      </div>
+    );
   }
 };

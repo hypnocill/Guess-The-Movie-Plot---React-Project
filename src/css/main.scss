@@ -1,7 +1,26 @@
-body {
-  margin: 0px;
+html, body {
+    margin: 0;
+    height: 100%;
 }
 
-.side-nav .divider {
-    margin: 0px 0 0 0;
+body {
+  font-family: 'Roboto';
+
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+
+
+
+
+
+// hidden Grid
+@media (max-width: 65em) {
+.element {
+display: none;
+}
 }
