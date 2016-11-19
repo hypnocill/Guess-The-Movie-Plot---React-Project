@@ -30,11 +30,12 @@ export default class AppNav extends React.Component {
               open={this.state.open}
               onRequestChange={(open) => this.setState({open})}
             >
+              <div id="menuImg"></div>
               <MenuItem containerElement={<Link to="/" />} onTouchTap={this.handleClose}>Home</MenuItem>
               <Divider />
-              <MenuItem containerElement={<Link to="/play" />} onTouchTap={this.handleClose}>Play</MenuItem>
-              <MenuItem containerElement={<Link to="/login" />}onTouchTap={this.handleClose}>Login</MenuItem>
-              <MenuItem containerElement={<Link to="/about" />}onTouchTap={this.handleClose}>About</MenuItem>
+              <MenuItem containerElement={<Link to="/redirect" />}  onTouchTap={this.handleClose}>Play</MenuItem>
+              <MenuItem containerElement={<Link to="/login" />} onTouchTap={this.handleClose}>Login</MenuItem>
+              <MenuItem containerElement={<Link to="/about" />} onTouchTap={this.handleClose}>About</MenuItem>
           </Drawer>
       </div>
     );

@@ -10,7 +10,7 @@ export default class Layout extends React.Component {
       <div>
         <AppNav />
           {this.props.children}
-        <Bottom />
+        <Bottom id="bottom" />
       </div>
     );
   }

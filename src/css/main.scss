@@ -5,15 +5,27 @@ html, body {
 
 body {
   font-family: 'Roboto';
-
 }
+
+small {
+  font-size: 0.7em;
+}
+
 
 
 .footer {
   position: fixed;
   bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0px;
 }
 
+#menuImg {
+  height: 200px;
+  background-image: url('../img/popcorn.jpg');
+  background-size: cover;
+}
 
 
 
@@ -21,6 +33,12 @@ body {
 // hidden Grid
 @media (max-width: 65em) {
 .element {
-display: none;
+  display: none;
+}
+h1 {
+  margin: 10px;
+}
+.footer {
+  display: none;
 }
 }

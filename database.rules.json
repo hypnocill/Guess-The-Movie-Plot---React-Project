@@ -1,6 +1,8 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    "movies": {
+      ".read": "true",
+      ".write": "false"
+    }
   }
 }
