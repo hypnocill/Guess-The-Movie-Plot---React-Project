@@ -15,22 +15,24 @@ class Redirect extends Component {
   }
 
   componentDidUpdate(){
-    if(this.props.countDown <= 0){
+    let { dispatch, countDown } = this.props;
+    if(countDown <= 0){
       browserHistory.push('/play');
-      this.props.dispatch(actions.resetCountDown());
+      dispatch(actions.resetCountDown());
     } else{
-      setTimeout(() => this.props.dispatch(actions.decrement()), 1000);
+      setTimeout(() => dispatch(actions.decrement()), 1000);
     }
   }
 
   render() {
+    let { countDown } = this.props;
     return (
       <Grid>
         <Row center="xs">
           <Col xs={10} sm={6}>
             <h1>Let the games begin in...</h1><br />
             <h1 style={{'fontWeight': '300', 'margin': '0px',
-                        'fontSize': '12rem', 'color': themeStyle.palette.accent1Color}}>{this.props.countDown}</h1>
+                        'fontSize': '12rem', 'color': themeStyle.palette.accent1Color}}>{countDown}</h1>
           </Col>
         </Row>
       </Grid>
@@ -40,6 +42,8 @@ class Redirect extends Component {
 
 export default connect(
   (state) => {
-    return state;
+    return {
+      countDown: state.countDown
+    };
   }
 )(Redirect);

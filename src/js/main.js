@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 import {createStore, compose} from 'redux';
 import {Provider} from 'react-redux';
+import firebase,  {firebaseRef, FBprovider} from './firebase/firebase';
 
 //store & actions
 import configureStore from './store/configureStore';
@@ -28,14 +29,29 @@ import Login from './components/Login.js';
 import About from './components/About.js';
 import Home from './components/Home.js';
 import Redirect from './components/Redirect.js';
+import Stats from './components/Stats.js';
+import End from './components/End.js';
 
 //Styles
 import '../css/main.scss';
 
 const store = configureStore();
 
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    store.dispatch(actions.login());
+    console.log(user);
+  } else {
+    store.dispatch(actions.logout());
+  }
+});
+
 function redirectReset(previousRoute, nextRoute){
   store.dispatch(actions.resetCountDown());
+}
+
+function onLeaveEnd(prevState){
+  store.dispatch(actions.wipeOldGuessedMovies());
 }
 
 ReactDOM.render(
@@ -47,7 +63,9 @@ ReactDOM.render(
             <Route path="play" component={Play} />
             <Route path="login" component={Login} />
             <Route path="about" component={About} />
-            <Route path="redirect" component={Redirect} onEnter={redirectReset}/>
+            <Route path="stats" component={Stats} />
+            <Route path="end" component={End} onLeave={onLeaveEnd}/>
+            <Route path="redirect" component={Redirect} onEnter={redirectReset} />
         </Route>
       </Router>
     </Provider>

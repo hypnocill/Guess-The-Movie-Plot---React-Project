@@ -3,6 +3,8 @@ html, body {
     height: 100%;
 }
 
+.links { cursor: pointer; }
+
 body {
   font-family: 'Roboto';
 }
@@ -10,7 +12,6 @@ body {
 small {
   font-size: 0.7em;
 }
-
 
 
 .footer {
@@ -26,8 +27,6 @@ small {
   background-image: url('../img/popcorn.jpg');
   background-size: cover;
 }
-
-
 
 
 // hidden Grid

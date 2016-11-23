@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid/lib';
 
 import Paper from 'material-ui/Paper';
+import CircularProgress from 'material-ui/CircularProgress';
 
 import * as actions from '../actions/actions';
 
@@ -11,27 +12,30 @@ import PlayQuestion from './Play/PlayQuestion';
 
 class Play extends React.Component {
   componentDidMount(){
-    this.props.dispatch(actions.getMovieName());
+    let { dispatch } = this.props;
+
+    dispatch(actions.startGame());
+
   }
 
   render(){
-    return(
-      <Grid>
-        <Row center="xs">
-          <Col xs={12} sm={10} md={8} lg={6}>
-            <h1 style={{'fontWeight': '300', 'fontSize': '3rem', 'margin': '15px'}}>1</h1>
-            <Paper style={{'padding': '15px'}} zDepth={1}>
-              <PlayQuestion />
-              <PlayInput />
-            </Paper>
-          </Col>
-        </Row>
-      </Grid>
-    );
+    let { fetching } = this.props;
+      return(
+        <Grid>
+          <Row center="xs">
+            <Col xs={12} sm={10} md={8} lg={6}>
+              <Paper style={{'padding': '15px', 'marginTop': '21px'}} zDepth={1}>
+                {fetching == true ? <CircularProgress style={{'marginTop': '25px'}}/> : <PlayQuestion /> }
+                <PlayInput />
+              </Paper>
+            </Col>
+          </Row>
+        </Grid>
+      );
   }
 };
 
 export default connect(
   (state) => {
-    return state;
+    return state; // da se opravi na baza na rezultata ot parviq otgovor + 'fetchedMovie'
 })(Play);

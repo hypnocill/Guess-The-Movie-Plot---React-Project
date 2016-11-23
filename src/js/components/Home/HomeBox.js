@@ -8,7 +8,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid/lib';
 
 
 export default class HomeDialog extends Component {
-  alert(){
+  startPlay(){
     browserHistory.push('/redirect');
   }
 
@@ -17,18 +17,16 @@ export default class HomeDialog extends Component {
       'padding': '15px',
     }
     return (
-
-            <div style={{'marginTop': '1em', 'marginBottom': '35px'}}>
-            <Paper style={paperStyle} zDepth={1}>
-              <h2 style={{'margin': '0px', 'marginBottom': '15px', 'fontWeight': 'normal'}}>Wanna Play a Game</h2>
-              <RaisedButton
-                label="PLAY"
-                secondary={true}
-                onTouchTap={this.alert}
-              />
-            </Paper>
-            </div>
-
+      <div style={{'marginTop': '1em', 'marginBottom': '35px'}}>
+        <Paper style={paperStyle} zDepth={1}>
+          <h2 style={{'margin': '0px', 'marginBottom': '15px', 'fontWeight': 'normal'}}>Wanna Play a Game</h2>
+          <RaisedButton
+            label="PLAY"
+            secondary={true}
+            onTouchTap={this.startPlay}
+          />
+        </Paper>
+      </div>
     );
   }
 }

@@ -23,9 +23,6 @@ export default class HomeImages extends React.Component {
           <img className="element" height="200" width="133" src="../img/5.jpg"></img>
           <img className="element" height="200" width="133" src="../img/6.jpg"></img>
       </div>
-
-
-
     );
   }
 };

@@ -10,36 +10,54 @@ import * as actions from '../../actions/actions';
 class PlayInput extends React.Component {
   handleSubmit(e){
     e.preventDefault();
-    let userMovieName = this.props.userInput;
-    this.props.dispatch(actions.clearMovieName());
+    let { userInput, fetchedMovie, score, dispatch } = this.props;
+      let fetchedMovieLowerCase = fetchedMovie.title.toLowerCase();
+      let userInputLowerCase = userInput.toLowerCase();
+      let guessedMovieObject = {
+        title: fetchedMovie.title,
+        posterURL: fetchedMovie.posterURL
+      }
+
+        if(fetchedMovieLowerCase == userInputLowerCase){
+          dispatch(actions.incrementScore());
+          dispatch(actions.guessedMovie(guessedMovieObject));
+          dispatch(actions.getMovieName());
+        } else {
+            dispatch(actions.initEndGame(score)); //stores score in firebase, resets score
+        };
+
+    dispatch(actions.clearMovieName());
   }
 
-
-
   render(){
-    return(
-      <div style={{'marginTop': '15px', 'marginBottom': '15px'}}>
-        <form autoComplete="off" onSubmit={this.handleSubmit.bind(this)}>
-          <TextField
-            onChange={(e) => this.props.dispatch(actions.storeMovieName(e.target.value))}
-            hintText="Movie Name"
-            style={{'width': '70%'}}
-            value={this.props.userInput}
-          /><br />
-          <FlatButton
-            type="submit"
-            label="NEXT"
-            secondary={true}
-            onTouchTap={this.alert}
-          />
-        </form>
-      </div>
-    )
+    let { userInput, dispatch } = this.props;
+      return(
+        <div style={{'marginTop': '15px', 'marginBottom': '15px'}}>
+          <form autoComplete="off" onSubmit={this.handleSubmit.bind(this)}>
+            <TextField
+              onChange={(e) => dispatch(actions.storeMovieName(e.target.value))}
+              hintText="Movie Name"
+              style={{'width': '70%'}}
+              value={userInput}
+            /><br />
+            <FlatButton
+              type="submit"
+              label="NEXT"
+              secondary={true}
+              onTouchTap={this.alert}
+            />
+          </form>
+        </div>
+      )
   }
 };
 
 export default connect(
   (state) => {
-    return state;
+    return {
+      userInput: state.userInput,
+      fetchedMovie: state.fetchedMovie,
+      score: state.score,
+    };
   }
 )(PlayInput);

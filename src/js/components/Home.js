@@ -19,10 +19,7 @@ export default class Home extends React.Component {
             <HomeBox />
           </Col>
         </Row>
-
-
       </Grid>
-
     );
   }
 };
