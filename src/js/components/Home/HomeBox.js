@@ -19,7 +19,7 @@ export default class HomeDialog extends Component {
     return (
       <div style={{'marginTop': '1em', 'marginBottom': '35px'}}>
         <Paper style={paperStyle} zDepth={1}>
-          <h2 style={{'margin': '0px', 'marginBottom': '15px', 'fontWeight': 'normal'}}>Wanna Play a Game</h2>
+          <h2 style={{'margin': '0px', 'marginBottom': '15px', 'fontWeight': 'normal'}}>Wanna Play a Game?</h2>
           <RaisedButton
             label="PLAY"
             secondary={true}

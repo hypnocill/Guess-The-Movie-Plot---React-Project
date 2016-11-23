@@ -15,7 +15,7 @@ export default class HomeImages extends React.Component {
     };
     return(
       <div>
-        <h1 style={{'fontWeight':'normal'}}>You Know These</h1>
+        <h1 style={{'fontWeight':'normal'}}>You Know These?</h1>
           <img height="200" width="133" src="../img/1.jpg"></img>
           <img height="200" width="133" src="../img/2.jpg"></img>
           <img className="element" height="200" width="133" src="../img/3.jpg"></img>

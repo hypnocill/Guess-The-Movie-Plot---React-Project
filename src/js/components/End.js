@@ -44,7 +44,7 @@ class End extends React.Component {
           <Row center="xs">
             <Col xs={12} sm={10} md={10}>
               <Paper style={{'padding': '15px', 'marginTop': '21px'}} zDepth={1}>
-                {guessedMovies.length > 0 ? <h2>You Guessed Them All!</h2> : null}
+                {guessedMovies.length > 0 ? <h2>The Movies You Guessed:</h2> : null}
                 {renderMovies()}
                 <br />
                 <RaisedButton label="PLAY AGAIN" secondary={true} onTouchTap={this.startPlay} />
