@@ -4,9 +4,10 @@ A personal project made for fun and exercise with React and its ecosystem.
 
 ## Demo
 
-https://mymoviegame.com/
+Try it out in the demo!
 
-Try it out in the demo! 
+[DEMO](https://mymoviegame.com/)
+
 
 You get a movie plot and you have to guess the movie title!
 
@@ -22,6 +23,6 @@ Install - `npm install`
 
 Start - `node server.js`
 
-Open http://localhost:3000 in the browser
+Open [http://localhost:3000](http://localhost:3000) in the browser
 
 
