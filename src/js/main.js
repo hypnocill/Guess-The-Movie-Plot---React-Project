@@ -24,6 +24,7 @@ injectTapEventPlugin();
 
 //Components
 import Layout from './components/Layout.js';
+import BeforePlay from './components/BeforePlay.js';
 import Play from './components/Play.js';
 import Login from './components/Login.js';
 import About from './components/About.js';
@@ -40,7 +41,7 @@ const store = configureStore();
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login());
-    console.log(user);
+    //console.log(user);
   } else {
     store.dispatch(actions.logout());
   }
@@ -60,6 +61,7 @@ ReactDOM.render(
       <Router history={browserHistory}>
         <Route path="/" component={Layout} >
           <IndexRoute component={Home} />
+            <Route path="beforeplay" component={BeforePlay} />
             <Route path="play" component={Play} />
             <Route path="login" component={Login} />
             <Route path="about" component={About} />

@@ -17,7 +17,7 @@ class UserStats extends React.Component {
     let auth = firebase.auth().currentUser;
     firebaseRef.child("users/" + auth.uid).once('value').then((snapshot) => {
       let userData = snapshot.val();
-      console.log(snapshot.val());
+      //console.log(snapshot.val());
         dispatch(actions.getUserData(userData));
     }, (e) => dispatch(actions.getUserData(e)));
   }

@@ -40,7 +40,7 @@ export const startLogin = () => {
     return firebase.auth().signInWithPopup(FBprovider)
     .then((result) => {
       let user = firebase.auth().currentUser;
-      console.log(result);
+      //console.log(result);
       dispatch(login());
 
       dispatch(startRegister());
@@ -98,17 +98,17 @@ export const getMovieName = () => {
 
       let guessedMoviesTitles = guessedMovies.map((movie) => movie.title.toLowerCase());
 
-      console.log(guessedMoviesTitles);
+      //console.log(guessedMoviesTitles);
 
       let currentMovie = movieNames[Math.floor(Math.random() * movieNames.length)];
 
-        console.log(currentMovie, guessedMoviesTitles);
+        //console.log(currentMovie, guessedMoviesTitles);
 
         if((guessedMoviesTitles.length > 0) && (guessedMoviesTitles.indexOf(currentMovie.toLowerCase()) > -1) && (guessedMoviesTitles.length < movieNames.length)){
-          console.log(currentMovie + ' REPEATED');
+          //console.log(currentMovie + ' REPEATED');
           do {
             currentMovie = movieNames[Math.floor(Math.random() * movieNames.length)];
-            console.log('NEW MOVIE ' + currentMovie);
+            //console.log('NEW MOVIE ' + currentMovie);
           }
           while(guessedMoviesTitles.indexOf(currentMovie.toLowerCase()) > -1);
         }
@@ -229,7 +229,7 @@ export const initEndGame = (score) => {
 
 
     };
-    console.log(user)
+    //console.log(user)
     browserHistory.push('end');
     dispatch(endGame());
     dispatch(resetScore());

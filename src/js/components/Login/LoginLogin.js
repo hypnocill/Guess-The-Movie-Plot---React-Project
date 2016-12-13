@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import firebase,  {firebaseRef, FBprovider} from '../../firebase/firebase';
 
+import { indigo500 } from 'material-ui/styles/colors';
+import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 
 import * as actions from '../../actions/actions';
@@ -14,9 +16,17 @@ class LoginLogin extends React.Component {
 
   render(){
     return(
-      <div className="links" onClick={this.handleLogin.bind(this)} style={{'marginTop': '15px', 'marginBottom': '15px'}}>
-        <img height="90" src="../../img/fblogin.png"></img>
-      </div>
+        <div>
+          <RaisedButton
+            style={{'marginTop': '15px'}}
+            label="Login with Facebook"
+            labelColor={'#FFFFFF'}
+            backgroundColor={indigo500}
+            onTouchTap={this.handleLogin.bind(this)}
+          />
+        <br />
+          <small>to keep track of your stats</small>
+        </div>
     )
   }
 };

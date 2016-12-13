@@ -30,7 +30,7 @@ class Redirect extends Component {
       <Grid>
         <Row center="xs">
           <Col xs={10} sm={6}>
-            <h1>Let the games begin in...</h1><br />
+            <h1>Get Ready!</h1><br />
             <h1 style={{'fontWeight': '300', 'margin': '0px',
                         'fontSize': '12rem', 'color': themeStyle.palette.accent1Color}}>{countDown}</h1>
           </Col>

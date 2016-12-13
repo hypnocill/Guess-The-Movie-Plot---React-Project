@@ -26,7 +26,7 @@ class PlayQuestion extends React.Component {
 
     return(
       <div>
-        <h2 style={{'margin': '10px', 'marginBottom': '25px', 'fontWeight': '900'}}>Do you know this movie</h2>
+        <h2 style={{'margin': '10px', 'marginBottom': '25px', 'fontWeight': '900'}}>Do you know this movie?</h2>
         <Divider />
         <div style={{'padding': '5px'}}>
           {showQuestion()}
