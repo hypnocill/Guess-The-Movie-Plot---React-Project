@@ -20,12 +20,15 @@ class Play extends React.Component {
 
   render(){
     let { fetching } = this.props;
+    let { score } = this.props;
+
       return(
         <Grid>
           <Row center="xs">
             <Col xs={12} sm={10} md={8} lg={6}>
               <Paper style={{'padding': '15px', 'marginTop': '21px'}} zDepth={1}>
                 {fetching == true ? <CircularProgress style={{'marginTop': '25px'}}/> : <PlayQuestion /> }
+
                 <PlayInput />
               </Paper>
             </Col>

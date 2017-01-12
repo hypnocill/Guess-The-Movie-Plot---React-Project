@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
+import { grey50, pinkA200, grey100 } from 'material-ui/styles/colors';
 
 import * as actions from '../../actions/actions';
 
@@ -15,7 +16,8 @@ class PlayInput extends React.Component {
       let userInputLowerCase = userInput.toLowerCase();
       let guessedMovieObject = {
         title: fetchedMovie.title,
-        posterURL: fetchedMovie.posterURL
+        posterURL: fetchedMovie.posterURL,
+        imdbID: fetchedMovie.imdbID
       }
 
         if(fetchedMovieLowerCase == userInputLowerCase){
@@ -30,16 +32,30 @@ class PlayInput extends React.Component {
   }
 
   render(){
-    let { userInput, dispatch } = this.props;
+    let { userInput, dispatch, score } = this.props;
+    let divStyle = {
+      'display': 'inline-block',
+      'width': '30px',
+      'height': '30px',
+      'borderRadius': '50%',
+      'lineHeight': '30px',
+      'textAlign': 'center',
+      'backgroundColor': grey100,
+      'color': pinkA200
+    };
+
       return(
         <div style={{'marginTop': '15px', 'marginBottom': '15px'}}>
           <form autoComplete="off" onSubmit={this.handleSubmit.bind(this)}>
+
             <TextField
               onChange={(e) => dispatch(actions.storeMovieName(e.target.value))}
               hintText="Movie Name"
               style={{'width': '70%'}}
               value={userInput}
-            /><br />
+            />
+          <div style={divStyle}>{score}</div>
+              <br />
             <FlatButton
               type="submit"
               label="NEXT"

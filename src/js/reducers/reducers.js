@@ -55,7 +55,8 @@ export const storingMovieReducer = (state = {}, action) => {
       return {
         title: action.title,
         plot: action.plot,
-        posterURL: action.posterURL
+        posterURL: action.posterURL,
+        imdbID: action.imdbID
       }
     default:
       return state;

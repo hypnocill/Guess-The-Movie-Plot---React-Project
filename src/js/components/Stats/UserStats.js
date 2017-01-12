@@ -46,7 +46,7 @@ timeConverter(UNIX_timestamp){
 
     let spinner = <CircularProgress style={{'marginTop': '25px'}}/>;
     let userDataJSX = <div>
-                        <img src={photoURL}></img>
+                        <img style={{'borderRadius': '50%'}} src={photoURL}></img>
                         <h1>{name}</h1>
                         <h2>Highest Score: {score} </h2>
                         <p>

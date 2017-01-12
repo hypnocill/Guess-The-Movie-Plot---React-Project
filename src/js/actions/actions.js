@@ -124,7 +124,7 @@ export const fetchMovie = (currentMovie) => {
     const fetchURL = `https://www.omdbapi.com/?t=${currentMovie}=&plot=full&r=json`;
     dispatch(startFetching());
       return axios.get(fetchURL).then((response) => {
-        dispatch(storeMovie(response.data.Title, response.data.Plot, response.data.Poster));
+        dispatch(storeMovie(response.data.Title, response.data.Plot, response.data.Poster, response.data.imdbID));
         dispatch(stopFetching());
       }).catch((e) => alert("Something went wrong: Refresh the Page!"));
 
@@ -132,12 +132,13 @@ export const fetchMovie = (currentMovie) => {
 }
 
 
-export const storeMovie = (title, plot, posterURL) => {
+export const storeMovie = (title, plot, posterURL, imdbID) => {
   return {
     type: 'STORE_MOVIE',
     title,
     plot,
-    posterURL
+    posterURL,
+    imdbID
   }
 
 }

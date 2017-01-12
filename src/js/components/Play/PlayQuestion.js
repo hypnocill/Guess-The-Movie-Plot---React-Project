@@ -40,7 +40,7 @@ export default connect(
   (state) => {
     return {
       fetchedMovie: state.fetchedMovie,
-      fetching: state.fetching
+      fetching: state.fetching,
     };
   }
 )(PlayQuestion);
