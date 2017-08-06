@@ -10,7 +10,6 @@ import Paper from 'material-ui/Paper';
 
 import { Grid, Row, Col } from 'react-flexbox-grid/lib';
 
-
 class BeforePlay extends Component {
   startPlay(){
     browserHistory.push('/redirect');

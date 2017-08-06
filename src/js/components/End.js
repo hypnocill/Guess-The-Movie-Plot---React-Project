@@ -34,12 +34,8 @@ class End extends React.Component {
 
       return guessedMovies.map((movie) => {
         let imdbID = movie.imdbID;
-        let movieLink = `http://imdb.com/title/${imdbID}`;
         return (
-          <a href={movieLink} target="_blank" key={uuid()}>
             <img style={{'margin': '2.5px'}} height="150"  src={movie.posterURL} />
-          </a>
-
         )
       })
     };

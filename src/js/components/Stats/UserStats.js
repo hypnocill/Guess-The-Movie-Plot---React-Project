@@ -17,7 +17,6 @@ class UserStats extends React.Component {
     let auth = firebase.auth().currentUser;
     firebaseRef.child("users/" + auth.uid).once('value').then((snapshot) => {
       let userData = snapshot.val();
-      //console.log(snapshot.val());
         dispatch(actions.getUserData(userData));
     }, (e) => dispatch(actions.getUserData(e)));
   }
@@ -40,7 +39,7 @@ timeConverter(UNIX_timestamp){
     let auth = firebase.auth().currentUser;
     let name = auth.displayName;
     let email = auth.email;
-    let photoURL = auth.photoURL;
+    let photoURL = `http://graph.facebook.com/${auth.providerData[0].uid}/picture?type=square`
     let score = userData.score;
     let registeredOn = this.timeConverter(userData.registeredOn);
 

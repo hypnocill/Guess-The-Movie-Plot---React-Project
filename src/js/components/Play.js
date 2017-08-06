@@ -15,7 +15,6 @@ class Play extends React.Component {
     let { dispatch } = this.props;
 
     dispatch(actions.startGame());
-
   }
 
   render(){
@@ -40,5 +39,5 @@ class Play extends React.Component {
 
 export default connect(
   (state) => {
-    return state; // da se opravi na baza na rezultata ot parviq otgovor + 'fetchedMovie'
+    return state; 
 })(Play);

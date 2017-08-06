@@ -11,9 +11,7 @@ import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
 import Person from 'material-ui/svg-icons/social/person';
 
-
 import {Link} from 'react-router';
-
 
 class AppNav extends React.Component {
 
@@ -26,10 +24,9 @@ class AppNav extends React.Component {
 
   handleClose = () => this.setState({open: false});
 
-
   render(){
     let auth = firebase.auth().currentUser;
-    let photoURL = auth ? firebase.auth().currentUser.photoURL : false;
+    let photoURL = auth ? `http://graph.facebook.com/${firebase.auth().currentUser.providerData[0].uid}/picture?type=square` : false;
     let myStats = <MenuItem containerElement={<Link to="/stats" />} onTouchTap={this.handleClose}>My Profile</MenuItem>;
 
     return(

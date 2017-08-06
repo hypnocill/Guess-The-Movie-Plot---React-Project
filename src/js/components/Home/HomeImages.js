@@ -3,7 +3,6 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 import { Grid, Row, Col } from 'react-flexbox-grid/lib';
 
-
 export default class HomeImages extends React.Component {
   render(){
     const style = {

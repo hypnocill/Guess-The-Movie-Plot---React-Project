@@ -41,7 +41,6 @@ const store = configureStore();
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login());
-    //console.log(user);
   } else {
     store.dispatch(actions.logout());
   }

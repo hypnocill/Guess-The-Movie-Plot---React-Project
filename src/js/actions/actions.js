@@ -40,7 +40,7 @@ export const startLogin = () => {
     return firebase.auth().signInWithPopup(FBprovider)
     .then((result) => {
       let user = firebase.auth().currentUser;
-      //console.log(result);
+      console.log(result);
       dispatch(login());
 
       dispatch(startRegister());
@@ -97,40 +97,34 @@ export const getMovieName = () => {
       let guessedMovies = state.guessedMovies;
 
       let guessedMoviesTitles = guessedMovies.map((movie) => movie.title.toLowerCase());
-
-      //console.log(guessedMoviesTitles);
-
       let currentMovie = movieNames[Math.floor(Math.random() * movieNames.length)];
 
-        //console.log(currentMovie, guessedMoviesTitles);
-
-        if((guessedMoviesTitles.length > 0) && (guessedMoviesTitles.indexOf(currentMovie.toLowerCase()) > -1) && (guessedMoviesTitles.length < movieNames.length)){
-          //console.log(currentMovie + ' REPEATED');
+        if((guessedMoviesTitles.length > 0)
+          && (guessedMoviesTitles.indexOf(currentMovie.toLowerCase()) > -1)
+          && (guessedMoviesTitles.length < movieNames.length)){
           do {
             currentMovie = movieNames[Math.floor(Math.random() * movieNames.length)];
-            //console.log('NEW MOVIE ' + currentMovie);
           }
           while(guessedMoviesTitles.indexOf(currentMovie.toLowerCase()) > -1);
         }
 
       dispatch(fetchMovie(currentMovie));
     });
-
   }
 }
 
 export const fetchMovie = (currentMovie) => {
   return (dispatch, getState) => {
-    const fetchURL = `https://www.omdbapi.com/?t=${currentMovie}=&plot=full&r=json`;
+    const fetchURL = `https://api.themoviedb.org/3/search/movie?api_key=134a204161434c9c926c81f562c80c06&query=${currentMovie}`;
     dispatch(startFetching());
       return axios.get(fetchURL).then((response) => {
-        dispatch(storeMovie(response.data.Title, response.data.Plot, response.data.Poster, response.data.imdbID));
+        let movieFromApi = response.data.results[0];
+        let posterBaseUrl = 'http://image.tmdb.org/t/p/w185/';
+        dispatch(storeMovie(movieFromApi.title, movieFromApi.overview, posterBaseUrl + movieFromApi.poster_path, movieFromApi.id));
         dispatch(stopFetching());
       }).catch((e) => alert("Something went wrong: Refresh the Page!"));
-
   }
 }
-
 
 export const storeMovie = (title, plot, posterURL, imdbID) => {
   return {
@@ -140,7 +134,6 @@ export const storeMovie = (title, plot, posterURL, imdbID) => {
     posterURL,
     imdbID
   }
-
 }
 
 //Loading
@@ -227,10 +220,7 @@ export const initEndGame = (score) => {
           });
         }
       }, (e) => console.log('COULD NOT UPDATE SCORE'));
-
-
     };
-    //console.log(user)
     browserHistory.push('end');
     dispatch(endGame());
     dispatch(resetScore());

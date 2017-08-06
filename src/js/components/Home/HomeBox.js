@@ -7,7 +7,6 @@ import Paper from 'material-ui/Paper';
 
 import { Grid, Row, Col } from 'react-flexbox-grid/lib';
 
-
 class HomeDialog extends Component {
   constructor(props){
     super(props);
@@ -21,7 +20,6 @@ class HomeDialog extends Component {
       } else {
         browserHistory.push('/beforeplay');
       }
-
   }
 
   render() {

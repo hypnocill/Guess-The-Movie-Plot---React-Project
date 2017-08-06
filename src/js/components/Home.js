@@ -4,7 +4,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid/lib';
 import HomeImages from './Home/HomeImages';
 import HomeBox from './Home/HomeBox';
 
-
 export default class Home extends React.Component {
   render(){
     return(

@@ -47,7 +47,6 @@ class PlayInput extends React.Component {
       return(
         <div style={{'marginTop': '15px', 'marginBottom': '15px'}}>
           <form autoComplete="off" onSubmit={this.handleSubmit.bind(this)}>
-
             <TextField
               onChange={(e) => dispatch(actions.storeMovieName(e.target.value))}
               hintText="Movie Name"
