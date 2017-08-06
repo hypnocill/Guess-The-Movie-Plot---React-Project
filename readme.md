@@ -1,6 +1,6 @@
 # My Movie Game - React/Redux Web App
 
-A personal project made for fun and exercise with React and its ecosystem.
+A personal project made for fun with React and its ecosystem.
 
 ## Demo
 
@@ -17,12 +17,6 @@ Obviously it's not competitive by any means as it uses a public API ( www.themov
 
 Webpack, ES6, React, Redux, Firebase, Material-UI 
 
-## Install the Project
 
-Install - `npm install`
-
-Start - `node server.js`
-
-Open [http://localhost:3000](http://localhost:3000) in the browser
 
 
