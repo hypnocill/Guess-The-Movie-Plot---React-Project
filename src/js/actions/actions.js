@@ -40,7 +40,6 @@ export const startLogin = () => {
     return firebase.auth().signInWithPopup(FBprovider)
     .then((result) => {
       let user = firebase.auth().currentUser;
-      console.log(result);
       dispatch(login());
 
       dispatch(startRegister());
