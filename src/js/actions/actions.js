@@ -114,7 +114,7 @@ export const getMovieName = () => {
 
 export const fetchMovie = (currentMovie) => {
   return (dispatch, getState) => {
-    const fetchURL = `https://api.themoviedb.org/3/search/movie?api_key=134a204161434c9c926c81f562c80c06&query=${currentMovie}`;
+    const fetchURL = `https://api.themoviedb.org/3/search/movie?api_key=query=${currentMovie}`;
     dispatch(startFetching());
       return axios.get(fetchURL).then((response) => {
         let movieFromApi = response.data.results[0];
