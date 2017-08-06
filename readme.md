@@ -6,12 +6,12 @@ A personal project made for fun and exercise with React and its ecosystem.
 
 Try it out in the demo!
 
-[DEMO](https://mymoviegame.com/)
+[DEMO](https://themovie-2ff61.firebaseapp.com/)
 
 
 You get a movie plot and you have to guess the movie title!
 
-Obviously it's not competitive by any means as it uses a public API ( http://www.omdbapi.com/ ).
+Obviously it's not competitive by any means as it uses a public API ( www.themoviedb.org ).
 
 ## Main Technologies
 
