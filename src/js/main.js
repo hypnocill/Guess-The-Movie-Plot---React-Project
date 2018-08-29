@@ -1,11 +1,11 @@
-import React 										from 'react';
-import ReactDOM 									from 'react-dom';
+import React										from 'react';
+import ReactDOM										from 'react-dom';
 import {Router, Route, IndexRoute, browserHistory} 	from 'react-router';
-import {createStore, compose} 						from 'redux';
-import {Provider} 									from 'react-redux';
+import {createStore, compose}						from 'redux';
+import {Provider}									from 'react-redux';
 import injectTapEventPlugin							from 'react-tap-event-plugin';
-import MuiThemeProvider 							from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme 									from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider								from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme									from 'material-ui/styles/getMuiTheme';
 
 import configureStore						from './store/configureStore';
 import * as actions							from './actions/actions';
